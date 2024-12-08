@@ -12,7 +12,10 @@ import NSBELOGO from '../assets/NSBELogoGiant.png'
 import ISAC from '../assets/Illinois-State-Scholar.jpg';
 import QB from '../assets/QB-Icon.jpg';
 import CB from '../assets/collegeboard.jpeg';
-
+import HEHS from '../assets/HoffmanLogo.jpeg';
+import XAO from '../assets/XAO.png'
+import Pres from '../assets/presidentAward.png';
+import GridCard from '../components/GridCard';
 export default function Homepage() {
     useEffect(() => {
         Aos.init({
@@ -150,27 +153,15 @@ export default function Homepage() {
                             data-aos="fade-up"
                         >
                             {[
-                                { image: QB, title: 'QuestBridge Match', description: 'ollege admissions program that connects high-achieving, low-income students with full four-year scholarships to top U.S. colleges. Through a competitive process, students apply and "match" with a partner college, receiving a financial aid package that covers tuition, room, board, and other expenses.' },
-                                { image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.'},
-                                {image: CB, title: 'National African American Recognition Award', description: ' honors high-achieving African American students for exceptional academic performance, demonstrated through high PSAT/NMSQT or AP scores and strong school records'}
+                                {image: QB, title: 'QuestBridge Match', description: 'ollege admissions program that connects high-achieving, low-income students with full four-year scholarships to top U.S. colleges. Through a competitive process, students apply and "match" with a partner college, receiving a financial aid package that covers tuition, room, board, and other expenses.' },
+                                {image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.'},
+                                {image: CB, title: 'National African American Recognition Award', description: ' honors high-achieving African American students for exceptional academic performance, demonstrated through high PSAT/NMSQT or AP scores and strong school records'},
+                                {image: HEHS, title: 'Academic Scholar', description: 'Academic Scholars are graduating seniors who have earned a minimum 3.90 regular grade point average or a minimum 4.70 weighted grade point average at the culmination of the seventh semester. These students received the Richard C. Kolze Achievement Award for their outstanding academic achievements during their high school careers.'},
+                                {image: XAO, title: 'XAO Scholarship Recpiant', description: ' scholarship to African-American\'s that meet the specified qualifications, are residents of the Northwest suburbs of Chicago'},
+                                {image: Pres, title: 'President\'s Education Award', description: 'the most distinguished graduating seniors for their accomplishments in many areas, including academic success, leadership, and service to school and community.'}
+                            
                             ].map((achievement, index) => (
-                                <div
-                                    key={index}
-                                    className="w-72 bg-[rgba(20,20,30,0.8)] rounded-lg border border-[#1E293B] p-4 flex flex-col items-center hover:bg-[#1E293B]/50 transition-colors"
-                                    data-aos="zoom-in"
-                                >
-                                    <img
-                                        className="w-40 h-40 mb-4 rounded-lg object-cover"
-                                        src={achievement.image}
-                                        alt={achievement.title}
-                                    />
-                                    <h3 className="font-bold text-lg text-cyan-400 mb-2">
-                                        {achievement.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-300 text-center">
-                                        {achievement.description}
-                                    </p>
-                                </div>
+                                <GridCard key={index} achievement={achievement}/>
                             ))}
                         </div>
                     </section>
