@@ -109,32 +109,41 @@ export default function Homepage() {
                             data-aos="fade-up"
                         >
                             <div
-                                className="bg-[rgba(20,20,30,0.8)] rounded-lg border border-[#1E293B] p-4"
+                                className="bg-[rgba(20,20,30,0.8)] rounded-xl border border-[rgba(20,30,50,0.8)] p-6 shadow-lg hover:shadow-[0_4px_20px_rgba(6,182,212,0.5)] transition-all transform hover:scale-105"
                                 data-aos="zoom-in"
                             >
+                                {/* Card Image */}
                                 <img
-                                    className="w-full h-auto object-cover mb-4 rounded"
+                                    className="w-full h-auto object-cover mb-6 rounded-lg border border-[rgba(30,40,60,0.8)] shadow-md"
                                     src={schoolLogo}
                                     alt="School"
                                 />
-                                <p className="text-sm text-gray-300">
-                                    I go to Northwestern University and a couple clubs that I am
-                                    involved in are NSBE, Colorstack, Emerging Coders, and IEEE.
+
+                                {/* Card Content */}
+                                <p className="text-sm text-[#D1D5DB] leading-relaxed">
+                                    I go to <span className="text-[#06B6D4] font-bold">Northwestern University</span> and am involved in several organizations like
+                                    <span className="text-[#38BDF8] font-semibold"> NSBE</span>, <span className="text-purple-400 font-semibold">Colorstack</span>,
+                                    <span className="text-green-400 font-semibold"> Emerging Coders</span>, and <span className="text-sky-400 font-semibold">IEEE</span>.
                                 </p>
                             </div>
+
                             {/* Club Logos */}
                             <div
-                                className="grid grid-cols-2 gap-4"
+                                className="grid grid-cols-2 gap-6"
                                 data-aos="fade-left"
                             >
                                 {[ECMO, IEEE, ColorStack, NSBELOGO].map((logo, index) => (
-                                    <img
+                                    <div
                                         key={index}
-                                        src={logo}
-                                        alt={`Club Logo ${index + 1}`}
-                                        className="rounded shadow-md hover:scale-105 transition-transform"
+                                        className="bg-[rgba(20,20,30,0.8)] rounded-lg border border-[rgba(30,40,60,0.8)] p-4 shadow-lg transition-transform transform hover:scale-105 hover:shadow-[0_4px_20px_rgba(6,182,212,0.5)]"
                                         data-aos="flip-left"
-                                    />
+                                    >
+                                        <img
+                                            src={logo}
+                                            alt={`Club Logo ${index + 1}`}
+                                            className="w-full h-auto object-contain rounded-lg"
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -153,15 +162,15 @@ export default function Homepage() {
                             data-aos="fade-up"
                         >
                             {[
-                                {image: QB, title: 'QuestBridge Match', description: 'ollege admissions program that connects high-achieving, low-income students with full four-year scholarships to top U.S. colleges. Through a competitive process, students apply and "match" with a partner college, receiving a financial aid package that covers tuition, room, board, and other expenses.' },
-                                {image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.'},
-                                {image: CB, title: 'National African American Recognition Award', description: ' honors high-achieving African American students for exceptional academic performance, demonstrated through high PSAT/NMSQT or AP scores and strong school records'},
-                                {image: HEHS, title: 'Academic Scholar', description: 'Academic Scholars are graduating seniors who have earned a minimum 3.90 regular grade point average or a minimum 4.70 weighted grade point average at the culmination of the seventh semester. These students received the Richard C. Kolze Achievement Award for their outstanding academic achievements during their high school careers.'},
-                                {image: XAO, title: 'XAO Scholarship Recpiant', description: ' scholarship to African-American\'s that meet the specified qualifications, are residents of the Northwest suburbs of Chicago'},
-                                {image: Pres, title: 'President\'s Education Award', description: 'the most distinguished graduating seniors for their accomplishments in many areas, including academic success, leadership, and service to school and community.'}
-                            
+                                { image: QB, title: 'QuestBridge Match', description: 'College admissions program that connects high-achieving, low-income students with full four-year scholarships to top U.S. colleges. Through a competitive process, students apply and "match" with a partner college, receiving a financial aid package that covers tuition, room, board, and other expenses.' },
+                                { image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.' },
+                                { image: CB, title: 'National African American Recognition Award', description: ' honors high-achieving African American students for exceptional academic performance, demonstrated through high PSAT/NMSQT or AP scores and strong school records' },
+                                { image: HEHS, title: 'Academic Scholar', description: 'Academic Scholars are graduating seniors who have earned a minimum 3.90 regular grade point average or a minimum 4.70 weighted grade point average at the culmination of the seventh semester. These students received the Richard C. Kolze Achievement Award for their outstanding academic achievements during their high school careers.' },
+                                { image: XAO, title: 'XAO Scholarship Recpiant', description: ' scholarship to African-American\'s that meet the specified qualifications, are residents of the Northwest suburbs of Chicago' },
+                                { image: Pres, title: 'President\'s Education Award', description: 'the most distinguished graduating seniors for their accomplishments in many areas, including academic success, leadership, and service to school and community.' }
+
                             ].map((achievement, index) => (
-                                <GridCard key={index} achievement={achievement}/>
+                                <GridCard key={index} achievement={achievement} />
                             ))}
                         </div>
                     </section>
