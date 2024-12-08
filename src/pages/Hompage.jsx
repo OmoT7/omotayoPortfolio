@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -17,26 +17,59 @@ import XAO from '../assets/XAO.png'
 import Pres from '../assets/presidentAward.png';
 import GridCard from '../components/GridCard';
 export default function Homepage() {
+    const [scrollY, setScrollY] = useState(0);
     useEffect(() => {
         Aos.init({
-            duration: 1000,
+            duration:23000,
             once: false,
             offset: 50,
         });
+
+        const handleScroll = () => {
+            if (contentRef.current && sidebarRef.current) {
+                const contentBottom = contentRef.current.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                // Check if the content is near the bottom of the viewport
+                // Adjust the 200 to control how early the sidebar moves
+                setIsNearFooter(contentBottom - windowHeight < 200);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
+    
+    
     return (
-        <div className="min-h-screen bg-[#020314] text-[#D1D5DB] relative overflow-hidden">
-            {/* Gradient Background Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1A2B3C] via-[#0F1729] to-[#0A1020] opacity-90 z-0"></div>
-            <div className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-cyan-600/20 rounded-full blur-[200px] z-0"></div>
-            <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[200px] z-0"></div>
+        <div className="min-h-screen bg-gradient-to-br from-[#1A2B3C] via-[#0F1729] to-[#0A1020] 
+            bg-[length:200%_200%] 
+            animate-gradient-x 
+            text-[#D1D5DB] 
+            relative 
+            overflow-hidden 
+            before:absolute 
+            before:inset-0 
+            before:bg-gradient-to-br 
+            before:from-cyan-500/10 
+            before:via-blue-700/5 
+            before:to-purple-600/10 
+            before:opacity-30 
+            before:animate-gradient-x 
+            before:transition-all 
+            before:duration-[5000ms] 
+            before:ease-in-out"
+        >
 
             <div className="flex relative z-10">
                 {/* Left Fixed Section */}
                 <div
                     className="w-1/4 h-screen bg-[rgba(20,20,30,0.8)] text-[#D1D5DB] flex flex-col items-center justify-center py-10 px-4 fixed left-0 top-0 bottom-0 overflow-hidden border-r border-[#1E293B]"
                     data-aos="fade-right"
+                    style={{transform: `translateY(${Math.min(0, -window.scrollY * 0.5)}px)`}}
                 >
                     <img
                         src={profileImage}
@@ -168,12 +201,13 @@ export default function Homepage() {
                                 { image: HEHS, title: 'Academic Scholar', description: 'Academic Scholars are graduating seniors who have earned a minimum 3.90 regular grade point average or a minimum 4.70 weighted grade point average at the culmination of the seventh semester. These students received the Richard C. Kolze Achievement Award for their outstanding academic achievements during their high school careers.' },
                                 { image: XAO, title: 'XAO Scholarship Recpiant', description: ' scholarship to African-American\'s that meet the specified qualifications, are residents of the Northwest suburbs of Chicago' },
                                 { image: Pres, title: 'President\'s Education Award', description: 'the most distinguished graduating seniors for their accomplishments in many areas, including academic success, leadership, and service to school and community.' }
-
                             ].map((achievement, index) => (
                                 <GridCard key={index} achievement={achievement} />
                             ))}
                         </div>
                     </section>
+                    
+                
                 </div>
             </div>
         </div>
