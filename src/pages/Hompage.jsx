@@ -11,6 +11,7 @@ import IEEE from '../assets/IEEE.jpeg';
 import NSBELOGO from '../assets/NSBELogoGiant.png'
 import ISAC from '../assets/Illinois-State-Scholar.jpg';
 import QB from '../assets/QB-Icon.jpg';
+import CB from '../assets/collegeboard.jpeg';
 
 export default function Homepage() {
     useEffect(() => {
@@ -149,8 +150,9 @@ export default function Homepage() {
                             data-aos="fade-up"
                         >
                             {[
-                                { image: QB, title: 'QuestBridge Match', description: 'Recognized for academic excellence and potential.' },
-                                { image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.' }
+                                { image: QB, title: 'QuestBridge Match', description: 'ollege admissions program that connects high-achieving, low-income students with full four-year scholarships to top U.S. colleges. Through a competitive process, students apply and "match" with a partner college, receiving a financial aid package that covers tuition, room, board, and other expenses.' },
+                                { image: ISAC, title: 'Illinois State Scholar', description: 'Acknowledged for outstanding academic achievements.'},
+                                {image: CB, title: 'National African American Recognition Award', description: ' honors high-achieving African American students for exceptional academic performance, demonstrated through high PSAT/NMSQT or AP scores and strong school records'}
                             ].map((achievement, index) => (
                                 <div
                                     key={index}
