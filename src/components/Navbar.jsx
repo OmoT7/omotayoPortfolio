@@ -1,40 +1,71 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
 
 export default function Navbar() {
+    const navigate = useNavigate();
     const location = useLocation();
     const navigation = [
         { 
-            name: 'Homepage', 
+            name: '[H] Homepage', 
             href: '/', 
             current: location.pathname === '/' || location.hash === '#/'
         },
         { 
-            name: 'Projects', 
+            name: '[A] About', 
+            href: '/about', 
+            current: location.pathname === '/about' || location.hash === '#/about' 
+        },
+        { 
+            name: '[P] Projects', 
             href: '/projects', 
             current: location.pathname === '/projects' || location.hash === '#/projects' 
-        }
+        },
+        { 
+            name: '[W] Work Experience', 
+            href: '/work', 
+            current: location.pathname === '/work' || location.hash === '#/work' 
+        },
     ]
     
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
+
+    useEffect(() => {
+        const handleKeyDown = (evt) => {
+            if (evt.key === 'h' || evt.key === 'H') {
+                navigate('/');
+            }
+            else if (evt.key === 'a' || evt.key === 'A'){
+                navigate('/about')
+            }
+            else if (evt.key === 'p' || evt.key === 'P'){
+                navigate('/projects')
+            }
+            else if (evt.key === 'w' || evt.key === 'W'){
+                navigate('/Work')
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+        };
+    }, [navigate])
     
     return (
         <Disclosure 
             as="nav" 
-            className="relative bg-[#020314] text-[#D1D5DB]"
+            className="relative bg-transparent text-[#D1D5DB] z-50"
         >
             {/* Gradient Background Overlay */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-cyan-600/20 via-blue-600/20 to-purple-600/20 rounded-full opacity-50 blur-3xl animate-slow-spin"></div>
-            </div>
-
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 relative z-10">
                 <div className="relative flex h-16 items-center justify-center">
                     <div className="flex items-center w-full">
                         <div className="hidden sm:ml-6 sm:block w-full">
-                            <div className="flex w-full">
+                            <div className="flex w-ful gap-6 justify-centerl">
                                 {navigation.map((item) => (
                                     <Link
                                         key={item.name}
