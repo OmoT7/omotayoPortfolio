@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeBracketIcon, GlobeAltIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
+import { CodeBracketIcon, GlobeAltIcon, WrenchScrewdriverIcon, ServerStackIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 export default function Projects() {
@@ -52,6 +52,14 @@ export default function Projects() {
             icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
             category: "Hardware/Product"
         },
+        {
+            title: "Photoapp CLI Application",
+            description: "Utilized AWS RDS and S3 to create a command line application that simulates a photoapplication",
+            technologies: ["AWS, MYSQL, VScode, Docker, Powershell"],
+            link: "https://github.com/OmoT7/Photoapp-CLI",
+            icon: <ServerStackIcon className='w-6 h-6'/>,
+            category: "Cloud Computing/Software"
+        }
 
 
         // Add more projects
