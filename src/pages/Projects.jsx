@@ -94,6 +94,15 @@ export default function Projects() {
             icon: <ServerStackIcon className="w-6 h-6" />,
             category: "Cloud Computing/Software",
             color: "purple"
+        },
+        {
+            title: "Dream Gen",
+            description: "A web application that generates dream interpretations based on user input. This project combines natural language processing with a user-friendly interface to provide personalized dream analysis.",
+            technologies: ["React", "Node.js", "Express", "Google Gemini API"],
+            link: "",
+            icon: <GlobeAltIcon className="w-6 h-6" />,
+            category: "Full Stack/AI/API Integration",
+            color: "pink",
         }
     ];
 
