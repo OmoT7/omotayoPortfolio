@@ -57,15 +57,12 @@ export default function Work() {
         },
         {
             title: "Software Engineering Intern",
-            company: "Tech Innovations Inc.",
-            date: "Jun 2023 - Aug 2023",
+            company: "CDK Global",
+            date: "Jun 2025 - Aug 2025",
             description: "Contributed to the development of a customer-facing web application that increased user engagement by 25% through intuitive design and responsive functionality.",
-            skills: ["JavaScript", "React", "Node.js", "MongoDB", "Agile/Scrum"],
+            skills: ["JavaScript", "React", "Node.js", "Postgress", "Agile/Scrum"],
             highlights: [
-                "Implemented responsive UI components using React that improved mobile user experience, resulting in a 25% increase in mobile engagement",
-                "Collaborated with backend developers to integrate RESTful APIs, ensuring seamless data flow between client and server",
-                "Participated in daily stand-ups and sprint planning in an Agile environment, consistently meeting or exceeding sprint goals",
-                "Optimized application performance by reducing load time by 30% through code refactoring and implementing lazy loading techniques"
+                "TBD"
             ],
             icon: ChartBarIcon,
             color: "purple"
