@@ -1,60 +1,30 @@
 import React, { useState } from 'react';
 
-const LanguageStats = () => {
-  const [hoveredBar, setHoveredBar] = useState(null);
-
-  const stats = [
-    { language: 'React', percentage: 60 },
-    { language: 'JavaScript', percentage: 70 },
-    { language: 'HTML/CSS', percentage: 50 },
-    { language: 'Python', percentage: 80 },
-    { language: 'C', percentage: 40 },
-    { language: 'C++', percentage: 50 },
-    { language: 'Java', percentage: 60 },
-    { language: 'Express.js', percentage: 80 },
-    { language: 'Node.js', percentage: 45 },
-    { language: 'MongoDB', percentage: 70 },
-    
-  ];
-
-  return (
-    <div className="relative group bg-[#0d0f13]/80 rounded-md w-11/12 shadow-lg mt-8">
-      <div className="relative inset-0 bg-gradient-to-br from-cyan-500/30 via-blue-500/30 to-purple-500 rounded-md p-[2px] group-hover:animate-borderGlow">
-        <div className="relative bg-[#0d0f13]/30 w-full rounded-md p-3 group-hover:scale-[1.01] transition-transform duration-300 ease-in-out">
-          <h2 className="text-base font-bold text-white mb-2">Language Usage Statistics</h2>
-          
-          <div className="space-y-1.5">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.language}
-                className="relative"
-                onMouseEnter={() => setHoveredBar(index)}
-                onMouseLeave={() => setHoveredBar(null)}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-20 text-sm font-mono text-gray-300">{stat.language}</div>
-                  <div className="flex-1 h-3 bg-[#0d0f13]/80 rounded-sm overflow-hidden border border-gray-800">
-                    <div
-                      className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 transition-all duration-300 hover:from-cyan-400 hover:via-blue-400 hover:to-purple-400"
-                      style={{ width: `${stat.percentage}%` }}
-                    />
-                  </div>
-                  <div className="w-12 text-sm font-mono text-right text-gray-300">
-                    {stat.percentage}%
-                  </div>
-                </div>
-                {hoveredBar === index && (
-                  <div className="absolute right-0 -top-8 bg-[#0d0f13]/95 border border-cyan-500/20 p-1 rounded-md shadow-lg text-xs font-mono text-white whitespace-nowrap">
-                    {stat.language}: {stat.percentage}% usage
-                  </div>
-                )}
-              </div>
-            ))}
+const LanguageStats = () => (
+  <div className="relative bg-black/30 backdrop-blur-md border border-white/10 rounded-xl p-6">
+    <h2 className="text-2xl font-semibold text-white mb-6">Coding Languages</h2>
+    <div className="space-y-4">
+      {[
+        { name: "JavaScript", percentage: 45, color: "bg-yellow-400" },
+        { name: "Python", percentage: 30, color: "bg-blue-400" },
+        { name: "HTML/CSS", percentage: 15, color: "bg-red-400" },
+        { name: "C++", percentage: 10, color: "bg-green-400" }
+      ].map((lang, index) => (
+        <div key={index} className="space-y-1">
+          <div className="flex justify-between">
+            <span className="text-gray-300">{lang.name}</span>
+            <span className="text-gray-400">{lang.percentage}%</span>
+          </div>
+          <div className="w-full bg-gray-700/30 rounded-full h-2">
+            <div 
+              className={`${lang.color} h-2 rounded-full`} 
+              style={{ width: `${lang.percentage}%` }}
+            ></div>
           </div>
         </div>
-      </div>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default LanguageStats;
