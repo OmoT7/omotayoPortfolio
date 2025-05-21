@@ -183,7 +183,7 @@ export default function Homepage() {
             <NavButton href="#/" icon="home" label="Home" shortcut="h" />
             <NavButton href="#/about" icon="about" label="About" shortcut="a" />
             <NavButton href="#/projects" icon="projects" label="Projects" shortcut="p" />
-            <NavButton href="/work" icon="work" label="Work Experience" shortcut="w" />
+            <NavButton href="#/work" icon="work" label="Work Experience" shortcut="w" />
           </nav>
         </section>
       </div>
