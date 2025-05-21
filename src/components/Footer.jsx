@@ -29,7 +29,7 @@ export default function Footer() {
                             <h3 className="text-lg font-bold text-white mb-4">Connect</h3>
                             <ul className="space-y-4">
                                 <li>
-                                    <a href="https://github.com/OmoT7" className="flex items-center space-x-3 hover:text-sky-400 transition">
+                                    <a href="#" className="flex items-center space-x-3 hover:text-sky-400 transition">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor"
