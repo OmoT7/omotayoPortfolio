@@ -157,10 +157,10 @@ export default function Projects() {
             {/* Enhanced Gradient Background with Animation */}
             <div className="fixed inset-0 bg-gradient-to-r from-cyan-900/90 via-blue-900/90 to-purple-900/90 bg-[length:400%_400%] animate-gradient-x"></div>
             
-            {/* Particle effect */}
+            {/* Particle effect with more particles and varied sizes */}
             <ParticleBackground />
 
-            {/* Improved Wave Layers */}
+            {/* Improved Wave Animations */}
             <div className="fixed bottom-0 left-0 w-full">
                 <div className="absolute bottom-0 left-1/2 w-[200%] h-48 bg-white/10 rounded-[100%_100%_0_0] animate-wave opacity-80 transform -translate-x-1/2"></div>
                 <div className="absolute bottom-[-1.25rem] left-1/2 w-[200%] h-48 bg-white/10 rounded-[100%_100%_0_0] animate-[wave_18s_linear_reverse_infinite] opacity-60 transform -translate-x-1/2"></div>
@@ -210,7 +210,7 @@ export default function Projects() {
                         /* Carousel View */
                         <div className="relative h-96 mb-16">
                             {/* Previous/Next button controls */}
-                            {/* <button 
+                            <button 
                                 onClick={prev}
                                 className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-gray-300 hover:text-white p-3 rounded-full transition-all"
                                 aria-label="Previous project"
@@ -224,7 +224,7 @@ export default function Projects() {
                                 aria-label="Next project"
                             >
                                 <ChevronRightIcon className="w-6 h-6" />
-                            </button> */}
+                            </button>
                             
                             {/* Project Cards in Carousel */}
                             <div className={carouselStyles.container}>
